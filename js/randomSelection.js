@@ -10,6 +10,14 @@ function initializer(){
 
 	$(".btn-success").on("click", function(e){
 		e.preventDefault();
+
+		$(".fa fa-hand-rock-o").on("click", computersChoice);
+		$(".fa fa-hand-paper-o").on("click", computersChoice);
+		$(".fa fa-hand-scissors-o").on("click", computersChoice);
+	
+	});
+
+	function computersChoice(){
 		var selectedChoice = Math.floor(Math.random() * choice.length);
  		
 		console.log("computer: " + choice[selectedChoice]);
@@ -36,10 +44,10 @@ function initializer(){
 		console.log("Round: " + currentRound);
 
 		if(currentRound === 3){
+			$(".modal-body").html("Round 3 complete, would you like to continue playing?");
 			$('#myModal').modal('show');
 		}
-		
-	});
+	}
 
 	function pointGranted(usersChoice, enemyChoice){
 		//enemy point = 1
