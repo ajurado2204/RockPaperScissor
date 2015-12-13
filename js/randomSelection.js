@@ -7,23 +7,25 @@ function initializer(){
 	var results;
 
 	var choice = ["rock", "paper", "scissor"];
+	console.log("hello");
 
-	$(".btn-success").on("click", function(e){
-		e.preventDefault();
+	$("#startbtn").on("click", function(e){
 
-		$(".fa fa-hand-rock-o").on("click", computersChoice);
-		$(".fa fa-hand-paper-o").on("click", computersChoice);
-		$(".fa fa-hand-scissors-o").on("click", computersChoice);
-	
+		console.log("hello1");
+
+		$("a").on("click", computersChoice);
+
 	});
 
 	function computersChoice(){
 		var selectedChoice = Math.floor(Math.random() * choice.length);
- 		
+		
 		console.log("computer: " + choice[selectedChoice]);
-		console.log("user: " + $("#userschoice").val().toLowerCase());
 
-		var usersChoice = $("#userschoice").val().toLowerCase();
+		var usersChoice = $(this).attr('id');
+
+		console.log("users: " + usersChoice);
+		
 		var enemyChoice = choice[selectedChoice];
 
 		results = pointGranted(usersChoice, enemyChoice);
@@ -45,8 +47,12 @@ function initializer(){
 
 		if(currentRound === 3){
 			$(".modal-body").html("Round 3 complete, would you like to continue playing?");
-			$('#myModal').modal('show');
+			$("#myModal").modal({
+				backdrop: 'static', 
+				keyboard: false
+			});
 		}
+
 	}
 
 	function pointGranted(usersChoice, enemyChoice){
