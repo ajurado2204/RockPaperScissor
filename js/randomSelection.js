@@ -7,25 +7,17 @@ function initializer(){
 	var results;
 
 	var choice = ["rock", "paper", "scissor"];
-	console.log("hello");
 
 	$("#startbtn").on("click", function(e){
 
-		console.log("hello1");
-
-		$("a").on("click", computersChoice);
-
+		$(document).on("click", "#rock", computersChoice);
+		$(document).on("click", "#paper", computersChoice);
+		$(document).on("click", "#scissor", computersChoice);
 	});
 
 	function computersChoice(){
 		var selectedChoice = Math.floor(Math.random() * choice.length);
-		
-		console.log("computer: " + choice[selectedChoice]);
-
 		var usersChoice = $(this).attr('id');
-
-		console.log("users: " + usersChoice);
-		
 		var enemyChoice = choice[selectedChoice];
 
 		results = pointGranted(usersChoice, enemyChoice);
@@ -41,19 +33,45 @@ function initializer(){
 
 		currentRound += 1;
 
-		console.log("User Score: " + usersScore);
-		console.log("Computer Score: " + enemyScore);
-		console.log("Round: " + currentRound);
-
-		if(currentRound === 3){
-			$(".modal-body").html("Round 3 complete, would you like to continue playing?");
-			$("#myModal").modal({
-				backdrop: 'static', 
-				keyboard: false
-			});
+		if(currentRound === 5){
+			displayResult();
+			$("#startbtn").unbind("click");
 		}
 
+		$("#giveup").on("click", resetFunction);
 	}
+
+
+
+	function displayResult(){
+		if(usersScore > enemyScore){
+			$("#myModalLabel").html("Round 5 complete");
+			$(".modal-body").html("Awsome! You won");
+		}else if{
+			$("#myModalLabel").html("Round 5 complete");
+			$(".modal-body").html("You Lost!");
+		}else{
+			$("#myModalLabel").html("Round 5 complete");
+			$(".modal-body").html("It was a tie!");
+		}
+			
+		$("#myModal").modal({
+			backdrop: 'static', 
+			keyboard: false
+		});
+	}
+
+
+
+
+	function resetFunction(){
+		usersScore = 0;
+		enemyScore = 0;
+		currentRound = 0;
+	}
+
+
+
 
 	function pointGranted(usersChoice, enemyChoice){
 		//enemy point = 1
@@ -75,8 +93,6 @@ function initializer(){
 			grantedTo = 1;
 		else if(usersChoice === "scissor" && enemyChoice === "paper")
 			grantedTo = 0;
-
-		console.log("");
 
 		return grantedTo;
 	}
