@@ -1,3 +1,20 @@
 .jumbotron{
 	background-color: white;
+	font-family: 'Ceviche One', cursive;
+}			
+
+.jumbotron h1{
+	font-size: 125px;
+	text-align: center;
+}
+
+.jumbotron a{
+	font-size: 30px;
+	color: black;
+}
+
+#rectangle {
+	width: 200px;
+	height: 100px;
+	background: red;
 }

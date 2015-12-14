@@ -6,9 +6,15 @@ function initializer(){
 	var currentRound = 0;
 	var results;
 
+	$("mypullDown").addClass("pullDown");
+	$("#myfadeIn").hide();
+
 	var choice = ["rock", "paper", "scissor"];
 
 	$("#startbtn").on("click", function(e){
+		$(".jumbotron").hide();
+		$("#myfadeIn").show();
+		$("#myfadeIn").addClass("fadeIn");
 
 		$(document).on("click", "#rock", computersChoice);
 		$(document).on("click", "#paper", computersChoice);
@@ -47,7 +53,7 @@ function initializer(){
 		if(usersScore > enemyScore){
 			$("#myModalLabel").html("Round 5 complete");
 			$(".modal-body").html("Awsome! You won");
-		}else if{
+		}else if(usersScore < enemyScore){
 			$("#myModalLabel").html("Round 5 complete");
 			$(".modal-body").html("You Lost!");
 		}else{
