@@ -36,9 +36,18 @@ function initializer(){
 	
 
 	function computersChoice(){
+
 		var selectedChoice = Math.floor(Math.random() * choice.length);
 		var usersChoice = $(this).attr('id');
 		var enemyChoice = choice[selectedChoice];
+
+		if(enemyChoice === "rock"){
+			$("#computerschoice").html("Rock");
+		}else if(enemyChoice === "paper"){
+			$("#computerschoice").html("Paper");
+		}else{
+			$("#computerschoice").html("Scissors");
+		}
 
 		results = pointGranted(usersChoice, enemyChoice);
 
@@ -55,6 +64,7 @@ function initializer(){
 		$("h3").html(currentRound);
 		$("#userscore").html(usersScore);
 		$("#computerscore").html(enemyScore);
+
 
 		if(currentRound === 5){
 			displayResult();
@@ -92,6 +102,7 @@ function initializer(){
 		$("h3").html(currentRound);
 		$("#userscore").html(usersScore);
 		$("#computerscore").html(enemyScore);
+		$("#computerschoice").html("");
 	}
 
 
@@ -107,6 +118,7 @@ function initializer(){
 		$("mypullDown").addClass("pullDown");
 		$("#myfadeIn").hide();
 		$("#startbtn").show();
+		$("#computerschoice").html("");
 	}
 
 

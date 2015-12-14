@@ -71,3 +71,16 @@ h3{
 	text-align: center;
 	color: white;
 }
+
+#computerschoice{
+	position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  margin-top: 30%;
+  margin-left: 30%;
+  font-size: 50px;
+	font-family: 'Ceviche One', cursive;
+	text-align: center;
+	color: #7d24ad;
+}
