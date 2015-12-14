@@ -1,25 +1,37 @@
 $(document).ready(initializer);
 
 function initializer(){
+	var username;
 	var usersScore = 0;
 	var enemyScore = 0;
 	var currentRound = 0;
 	var results;
 
+
+	$("form").hide();
 	$("mypullDown").addClass("pullDown");
 	$("#myfadeIn").hide();
 
 	var choice = ["rock", "paper", "scissor"];
 
 	$("#startbtn").on("click", function(e){
+		$("form").show();
+		$("#startbtn").hide();
+	});
+
+	$("#beginbtn").on("click", function(e){
 		$(".jumbotron").hide();
 		$("#myfadeIn").show();
 		$("#myfadeIn").addClass("fadeIn");
+
+		username = $("#name").val();
+		$("#personsname").html(username);
 
 		$(document).on("click", "#rock", computersChoice);
 		$(document).on("click", "#paper", computersChoice);
 		$(document).on("click", "#scissor", computersChoice);
 	});
+	
 
 	function computersChoice(){
 		var selectedChoice = Math.floor(Math.random() * choice.length);
@@ -38,13 +50,16 @@ function initializer(){
 		}
 
 		currentRound += 1;
+		$("h3").html(currentRound);
+		$("#userscore").html(usersScore);
+		$("#computerscore").html(enemyScore);
 
 		if(currentRound === 5){
 			displayResult();
-			$("#startbtn").unbind("click");
 		}
 
-		$("#giveup").on("click", resetFunction);
+		$("#giveup").on("click", startAgain);
+		$("#seekrev").on("click", resetFunc)
 	}
 
 
@@ -68,12 +83,28 @@ function initializer(){
 	}
 
 
-
-
-	function resetFunction(){
+	function resetFunc(){
 		usersScore = 0;
 		enemyScore = 0;
 		currentRound = 0;
+		$("h3").html(currentRound);
+		$("#userscore").html(usersScore);
+		$("#computerscore").html(enemyScore);
+	}
+
+
+	function startAgain(){
+		usersScore = 0;
+		enemyScore = 0;
+		currentRound = 0;
+		$("h3").html(currentRound);
+		$("#userscore").html(usersScore);
+		$("#computerscore").html(enemyScore);
+		$("form").hide();
+		$(".jumbotron").show();
+		$("mypullDown").addClass("pullDown");
+		$("#myfadeIn").hide();
+		$("#startbtn").show();
 	}
 
 

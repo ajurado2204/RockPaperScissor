@@ -1,3 +1,7 @@
+body{
+	background-color: black;
+}
+
 .jumbotron{
 	background-color: white;
 	font-family: 'Ceviche One', cursive;
@@ -13,8 +17,57 @@
 	color: black;
 }
 
-#rectangle {
-	width: 200px;
-	height: 100px;
-	background: red;
+span{
+	font-size: 50px;
+	font-family: 'Ceviche One', cursive;
+	text-align: center;
+	color: #7d24ad;
+	margin-left: 20%;
+}
+
+img{
+	height: auto;
+	width: 80%;
+	min-height: 300px;
+	max-height: 600px;
+}
+
+h3{
+	font-size: 30px;
+	font-family: 'Ceviche One', cursive;
+	text-align: center;
+	color: white;
+	margin-left: -35%;
+}
+
+#personsname{
+	font-size: 30px;
+	font-family: 'Ceviche One', cursive;
+	text-align: center;
+	color: #7d24ad;
+	margin-left: -17%;
+}
+
+#computer{
+	font-size: 30px;
+	font-family: 'Ceviche One', cursive;
+	text-align: center;
+	color: #7d24ad;
+	margin-left: 17%;
+}
+
+#userscore{
+	font-size: 30px;
+	font-family: 'Ceviche One', cursive;
+	text-align: center;
+	color: white;
+	margin-left: -17%;
+	margin-right: 15%;
+}
+
+#computerscore{
+	font-size: 30px;
+	font-family: 'Ceviche One', cursive;
+	text-align: center;
+	color: white;
 }
