@@ -15,11 +15,13 @@ function initializer(){
 	var choice = ["rock", "paper", "scissor"];
 
 	$("#startbtn").on("click", function(e){
+		e.preventDefault();
 		$("form").show();
 		$("#startbtn").hide();
 	});
 
 	$("#beginbtn").on("click", function(e){
+		e.preventDefault();
 		$(".jumbotron").hide();
 		$("#myfadeIn").show();
 		$("#myfadeIn").addClass("fadeIn");
