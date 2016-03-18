@@ -5,6 +5,7 @@ function initializer(){
 	var usersScore = 0;
 	var enemyScore = 0;
 	var currentRound = 0;
+	var buttonsSet = false;
 	var results;
 
 
@@ -14,11 +15,9 @@ function initializer(){
 
 	var choice = ["rock", "paper", "scissor"];
 
-	$("#startbtn").on("click", function(e){
-		e.preventDefault();
-		$("form").show();
-		$("#startbtn").hide();
-	});
+
+	$("#startbtn").on('click', bindHandler);
+
 
 	$("#beginbtn").on("click", function(e){
 		e.preventDefault();
@@ -29,11 +28,21 @@ function initializer(){
 		username = $("#name").val();
 		$("#personsname").html(username);
 
-		$(document).on("click", "#rock", computersChoice);
-		$(document).on("click", "#paper", computersChoice);
-		$(document).on("click", "#scissor", computersChoice);
+		if(!buttonsSet){
+			$(document).on("click", "#rock", computersChoice);
+			$(document).on("click", "#paper", computersChoice);
+			$(document).on("click", "#scissor", computersChoice);
+			buttonsSet = true;
+		}
+		
 	});
 	
+
+	function bindHandler(){
+		//event.preventDefault();
+		$("form").show();
+		$("#startbtn").hide();	}
+
 
 	function computersChoice(){
 
@@ -61,6 +70,7 @@ function initializer(){
 		}
 
 		currentRound += 1;
+
 		$("h3").html(currentRound);
 		$("#userscore").html(usersScore);
 		$("#computerscore").html(enemyScore);
@@ -68,6 +78,7 @@ function initializer(){
 
 		if(currentRound === 5){
 			displayResult();
+			
 		}
 
 		$("#giveup").on("click", startAgain);
@@ -119,6 +130,7 @@ function initializer(){
 		$("#myfadeIn").hide();
 		$("#startbtn").show();
 		$("#computerschoice").html("");
+
 	}
 
 
