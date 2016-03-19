@@ -149,20 +149,20 @@ body{
 
 
 
-/*.jumbotron{*/
-	/*background-color: black;*/
-	/*font-family: 'Ceviche One', cursive;*/
-/*}			*/
+.jumbotron{
+	background-color: black;
+  font-family: 'VT323';
+}
 
-/*.jumbotron h1{*/
-	/*font-size: 125px;*/
-	/*text-align: center;*/
-/*}*/
+.jumbotron h1{
+	font-size: 200px;
+	text-align: center;
+}
 
-/*.jumbotron a{*/
-	/*font-size: 30px;*/
-	/*color: black;*/
-/*}*/
+.jumbotron a{
+	font-size: 40px;
+	color: black;
+}
 
 /*span{*/
 	/*font-size: 50px;*/
