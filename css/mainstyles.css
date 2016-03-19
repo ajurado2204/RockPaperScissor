@@ -5,7 +5,7 @@ body{
 
 #rectangle {
   width: 500px;
-  height: 800px;
+  height: 750px;
   background: #5538FC;
   display: block;
   margin-left: auto;
@@ -18,7 +18,7 @@ body{
   position: relative;
   left: 0px;
   top: 0px;
-  z-index: -1;
+
 }
 
 
@@ -148,20 +148,27 @@ body{
 }
 
 
-
 .jumbotron{
 	background-color: black;
   font-family: 'VT323';
 }
+
 
 .jumbotron h1{
 	font-size: 200px;
 	text-align: center;
 }
 
+
 .jumbotron a{
 	font-size: 40px;
 	color: black;
+}
+
+.displaytext {
+  font-family: 'VT323';
+  font-size: 75px;
+  text-align: center;
 }
 
 /*span{*/

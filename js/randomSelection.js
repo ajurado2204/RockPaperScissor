@@ -11,9 +11,10 @@ function initializer(){
 
 	$("form").hide();
 	$("mypullDown").addClass("pullDown");
-	$("#myfadeIn").hide();
+	$(".myfadeIn").hide();
+  $(".displaytext").hide();
 
-	var choice = ["rock", "paper", "scissor"];
+  var choice = ["rock", "paper", "scissor"];
 
 
 	$("#startbtn").on('click', bindHandler);
@@ -22,14 +23,17 @@ function initializer(){
 	$("#beginbtn").on("click", function(e){
 		e.preventDefault();
 		$(".jumbotron").hide();
-		$("#myfadeIn").show();
-		$("#myfadeIn").addClass("fadeIn");
+		$(".myfadeIn").show();
+		$(".myfadeIn").addClass("fadeIn");
+
+    $(".displaytext").show();
+    $(".displaytext").addClass("slideUp");
 
 		username = $("#name").val();
 		$("#personsname").html(username);
 
 		if(!buttonsSet){
-			$(document).on("click", "#rock", computersChoice);
+			$(document).on("click", "#rectangle4", computersChoice);
 			$(document).on("click", "#paper", computersChoice);
 			$(document).on("click", "#scissor", computersChoice);
 			buttonsSet = true;
@@ -41,48 +45,49 @@ function initializer(){
 	function bindHandler(){
 		//event.preventDefault();
 		$("form").show();
-		$("#startbtn").hide();	}
-
+		$("#startbtn").hide();
+  }
 
 	function computersChoice(){
 
-		var selectedChoice = Math.floor(Math.random() * choice.length);
-		var usersChoice = $(this).attr('id');
-		var enemyChoice = choice[selectedChoice];
-
-		if(enemyChoice === "rock"){
-			$("#computerschoice").html("Rock");
-		}else if(enemyChoice === "paper"){
-			$("#computerschoice").html("Paper");
-		}else{
-			$("#computerschoice").html("Scissors");
-		}
-
-		results = pointGranted(usersChoice, enemyChoice);
-
-		switch(results){
-			case 0:
-				usersScore += 1;
-				break;
-			case 1:
-				enemyScore += 1;
-				break;
-		}
-
-		currentRound += 1;
-
-		$("h3").html(currentRound);
-		$("#userscore").html(usersScore);
-		$("#computerscore").html(enemyScore);
-
-
-		if(currentRound === 5){
-			displayResult();
-			
-		}
-
-		$("#giveup").on("click", startAgain);
-		$("#seekrev").on("click", resetFunc)
+    alert("hello");
+		//var selectedChoice = Math.floor(Math.random() * choice.length);
+		//var usersChoice = $(this).attr('id');
+		//var enemyChoice = choice[selectedChoice];
+    //
+		//if(enemyChoice === "rock"){
+		//	$("#computerschoice").html("Rock");
+		//}else if(enemyChoice === "paper"){
+		//	$("#computerschoice").html("Paper");
+		//}else{
+		//	$("#computerschoice").html("Scissors");
+		//}
+    //
+		//results = pointGranted(usersChoice, enemyChoice);
+    //
+		//switch(results){
+		//	case 0:
+		//		usersScore += 1;
+		//		break;
+		//	case 1:
+		//		enemyScore += 1;
+		//		break;
+		//}
+    //
+		//currentRound += 1;
+    //
+		//$("h3").html(currentRound);
+		//$("#userscore").html(usersScore);
+		//$("#computerscore").html(enemyScore);
+    //
+    //
+		//if(currentRound === 5){
+		//	displayResult();
+		//
+		//}
+    //
+		//$("#giveup").on("click", startAgain);
+		//$("#seekrev").on("click", resetFunc)
 	}
 
 
