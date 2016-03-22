@@ -13,81 +13,124 @@ function initializer(){
 	$("mypullDown").addClass("pullDown");
 	$(".myfadeIn").hide();
   $(".displaytext").hide();
+  $('#score').hide();
+  $('#rock').hide();
+  $('#paper').hide();
+  $('#scissor').hide();
+  $('#shoot').hide();
+  $('#usrchoice').hide();
+  $("#computerschoice").hide();
+  $("#notifyUsr").hide();
 
   var choice = ["rock", "paper", "scissor"];
 
-
 	$("#startbtn").on('click', bindHandler);
-
 
 	$("#beginbtn").on("click", function(e){
 		e.preventDefault();
+
 		$(".jumbotron").hide();
 		$(".myfadeIn").show();
 		$(".myfadeIn").addClass("fadeIn");
 
-    $(".displaytext").show();
-    $(".displaytext").addClass("slideUp");
-
 		username = $("#name").val();
 		$("#personsname").html(username);
 
-		if(!buttonsSet){
-			$(document).on("click", "#rectangle4", computersChoice);
-			$(document).on("click", "#paper", computersChoice);
-			$(document).on("click", "#scissor", computersChoice);
-			buttonsSet = true;
-		}
-		
+
+    $('#rectangle4').on('click', function(){
+      currentRound += 1;
+      $("h3").html("Round: " + currentRound);
+
+
+      $("h3").delay(1000).show('slow').fadeOut('slow');
+      var t0 = setTimeout(function(){
+        $(".displaytext").delay(500).show('slow').fadeOut('slow');
+        var t1 = setTimeout(function(){
+          $("#rock").delay(500).show('slow').fadeOut('slow');
+          var t2 = setTimeout(function(){
+            $("#paper").delay(500).show('slow').fadeOut('slow');
+            var t3 = setTimeout(function(){
+              $("#scissor").delay(500).show('slow').fadeOut('slow');
+              var t4 = setTimeout(function(){
+                $("#shoot").delay(500).show('slow').fadeOut('slow');
+                $('#usrchoice').delay(2300).show('slow');
+              }, 2000);
+            }, 2000);
+          }, 2000);
+        }, 2000);
+      }, 2000);
+
+
+      if(!buttonsSet){
+      	$(document).on("click", "#usrrock", computersChoice);
+      	$(document).on("click", "#usrpaper", computersChoice);
+      	$(document).on("click", "#usrscissor", computersChoice);
+      	buttonsSet = true;
+      }
+    });
 	});
 	
 
 	function bindHandler(){
-		//event.preventDefault();
 		$("form").show();
 		$("#startbtn").hide();
   }
 
 	function computersChoice(){
 
-    alert("hello");
-		//var selectedChoice = Math.floor(Math.random() * choice.length);
-		//var usersChoice = $(this).attr('id');
-		//var enemyChoice = choice[selectedChoice];
-    //
-		//if(enemyChoice === "rock"){
-		//	$("#computerschoice").html("Rock");
-		//}else if(enemyChoice === "paper"){
-		//	$("#computerschoice").html("Paper");
-		//}else{
-		//	$("#computerschoice").html("Scissors");
-		//}
-    //
-		//results = pointGranted(usersChoice, enemyChoice);
-    //
-		//switch(results){
-		//	case 0:
-		//		usersScore += 1;
-		//		break;
-		//	case 1:
-		//		enemyScore += 1;
-		//		break;
-		//}
-    //
-		//currentRound += 1;
-    //
-		//$("h3").html(currentRound);
-		//$("#userscore").html(usersScore);
-		//$("#computerscore").html(enemyScore);
-    //
-    //
-		//if(currentRound === 5){
-		//	displayResult();
-		//
-		//}
-    //
-		//$("#giveup").on("click", startAgain);
-		//$("#seekrev").on("click", resetFunc)
+		var selectedChoice = Math.floor(Math.random() * choice.length);
+		var usersChoice = ($(this).attr('id')).slice(3);
+		var enemyChoice = choice[selectedChoice];
+    $('#usrchoice').hide();
+
+		if(enemyChoice === "rock"){
+			$("#computerschoice").html("Computer Chose: Rock");
+      var t5 = setTimeout(function(){
+        $("#computerschoice").delay(300).show('slow').fadeOut(1000);
+      }, 500);
+		}else if(enemyChoice === "paper"){
+			$("#computerschoice").html("Computer Chose: Paper");
+      var t5 = setTimeout(function(){
+        $("#computerschoice").delay(300).show('slow').fadeOut(1000);
+      }, 500);
+		}else{
+			$("#computerschoice").html("Computer Chose: Scissors");
+      var t5 = setTimeout(function(){
+        $("#computerschoice").delay(300).show().fadeOut(1000);
+      }, 500);
+		}
+
+		results = pointGranted(usersChoice, enemyChoice);
+
+		switch(results){
+			case 0:
+				usersScore += 1;
+				break;
+			case 1:
+				enemyScore += 1;
+				break;
+		}
+
+    $("#computerschoice").hide();
+    $("#userscore").html(username + ": "+usersScore);
+    $("#computerscore").html("Computer: "+ enemyScore);
+    $("#notifyUsr").html("Click start to begin next round!");
+
+
+    var t6 = setTimeout(function(){
+      $("#score").delay(1000).show('slow').fadeOut(2000);
+      var t7 = setTimeout(function(){
+        $("#notifyUsr").delay(500).show('slow').fadeOut(3000);
+        document.getElementById("startbtn").disabled = false;
+        if(currentRound === 5){
+          displayResult();
+        }
+      }, 3000);
+    }, 2000);
+
+
+		$("#giveup").on("click", startAgain);
+		$("#seekrev").on("click", resetFunc)
 	}
 
 
@@ -132,13 +175,11 @@ function initializer(){
 		$("form").hide();
 		$(".jumbotron").show();
 		$("mypullDown").addClass("pullDown");
-		$("#myfadeIn").hide();
+		$(".myfadeIn").hide();
 		$("#startbtn").show();
 		$("#computerschoice").html("");
 
 	}
-
-
 
 
 	function pointGranted(usersChoice, enemyChoice){

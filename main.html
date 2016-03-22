@@ -47,7 +47,33 @@
   <div id="rectangle" class="myfadeIn fadeIn">
     <div id="rectangle2">
       <div id="square">
-        <p class="displaytext">Let's Begin</p>
+        <div class="gameplay">
+          <p class="displaytext">Let's Begin</p>
+          <div id="score">
+            <div>Score</div>
+            <p>User</p>
+            <p id="userscore"></p>
+            <p id="computerscore"></p>
+          </div>
+
+          <div id="choices">
+            <i id="rock" class="fa fa-hand-rock-o fa-5x"></i>
+            <i id="paper" class="fa fa-hand-paper-o fa-5x"></i>
+            <i id="scissor" class="fa fa-hand-scissors-o fa-5x"></i>
+            <div id="shoot" style="display:none;"><h4>Shoot</h4></div>
+          </div>
+
+          <div id="usrchoice">
+            <a href="#" id="usrrock"><i class="fa fa-hand-rock-o fa-5x"></i></a>
+            <a href="#" id="usrpaper"><i class="fa fa-hand-paper-o fa-5x"></i></a>
+            <a href="#" id="usrscissor"><i class="fa fa-hand-scissors-o fa-5x"></i></a>
+          </div>
+
+          <h1 id="computerschoice"></h1>
+          <h3></h3>
+          <p id="notifyUsr"></p>
+
+        </div>
       </div>
 
       <div id="cross">
@@ -60,83 +86,26 @@
       <div id="rectangle4"></div>
       <p id="thestart">START</p>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" id="giveup" data-dismiss="modal">Give Up</button>
+            <button type="button" class="btn btn-primary" id="seekrev" data-dismiss="modal">Seek Revenge</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-
-
-	<!--<div id="myfadeIn" class="container fadeIn">-->
-
-		<!--<br>-->
-		<!--<div class="row">-->
-			<!--<div class="col-md-4"></div>-->
-			<!--<div class="col-md-4"><span>Round</span>-->
-				<!--<div class="row">-->
-					<!--<div class="col-md-12"> -->
-						<!--<h3>0</h3>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="row">-->
-					<!--<div class="col-md-6" id="personsname"> -->
-						<!---->
-					<!--</div>-->
-					<!--<div class="col-md-6" id="computer"> -->
-						<!--Computer-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="row">-->
-					<!--<div class="col-md-6" id="userscore"> -->
-						<!--0-->
-					<!--</div>-->
-					<!--<div class="col-md-6" id="computerscore"> -->
-						<!--0-->
-					<!--</div>-->
-				<!--</div>-->
-			<!--</div>-->
-			<!--<div class="col-md-4"></div>-->
-
-		<!--</div>-->
-
-		<!--<div class="row">-->
-			<!--<div class="col-md-4"></div>-->
-			<!--<div class="col-md-4" id="computerschoice"></div>-->
-			<!--<div class="col-md-4"></div>	-->
-		<!--</div>-->
-
-		<!--<div class="row">-->
-			<!--<div class="col-md-4"></div>-->
-			<!--<div class="col-md-4">-->
-				<!--<a href="#" id="rock"><i class="fa fa-hand-rock-o fa-5x"></i></a>-->
-				<!--<a href="#" id="paper"><i class="fa fa-hand-paper-o fa-5x"></i></a>-->
-				<!--<a href="#" id="scissor"><i class="fa fa-hand-scissors-o fa-5x"></i></a>-->
-			<!---->
-			<!--</div>-->
-			<!--<div class="col-md-4"></div>	-->
-		<!--</div>-->
-	<!--</div>-->
-
-	<!--&lt;!&ndash; Modal &ndash;&gt;-->
-	<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-	  <!--<div class="modal-dialog" role="document">-->
-	    <!--<div class="modal-content">-->
-	    	<!--<div class="modal-header">-->
-        	<!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
-      	<!--</div>-->
-	      <!--<div class="modal-body">-->
-	        <!---->
-	      <!--</div>-->
-	      <!--<div class="modal-footer">-->
-	        <!--<button type="button" class="btn btn-default" id="giveup" data-dismiss="modal">Give Up</button>-->
-	        <!--<button type="button" class="btn btn-primary" id="seekrev" data-dismiss="modal">Seek Revenge</button>-->
-	      <!--</div>-->
-	    <!--</div>-->
-	  <!--</div>-->
-	<!--</div>-->
-
-
-
-
-
-
 
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
