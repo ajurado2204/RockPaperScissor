@@ -29,7 +29,7 @@ function initializer(){
   $("#startbtn").on('click', bindHandler);
 
   // Event listener when user wants to begin the game
-	$("#beginbtn").on("click", function(e){
+  $("#beginbtn").on("click", function(e){
     e.preventDefault();
 
     $(".jumbotron").hide();
@@ -70,7 +70,7 @@ function initializer(){
       	buttonsSet = true;
       }
     });
-	});
+  });
 
   function bindHandler(){
     $("form").show();
@@ -84,33 +84,33 @@ function initializer(){
     var enemyChoice = choice[selectedChoice];
     $('#usrchoice').hide();
 
-		if(enemyChoice === "rock"){
-			$("#computerschoice").html("Computer Chose: Rock");
+    if(enemyChoice === "rock"){
+      $("#computerschoice").html("Computer Chose: Rock");
       var t5 = setTimeout(function(){
         $("#computerschoice").delay(300).show('slow').fadeOut(1000);
       }, 500);
-		}else if(enemyChoice === "paper"){
-			$("#computerschoice").html("Computer Chose: Paper");
+    }else if(enemyChoice === "paper"){
+      $("#computerschoice").html("Computer Chose: Paper");
       var t5 = setTimeout(function(){
         $("#computerschoice").delay(300).show('slow').fadeOut(1000);
       }, 500);
-		}else{
-			$("#computerschoice").html("Computer Chose: Scissors");
+    }else{
+      $("#computerschoice").html("Computer Chose: Scissors");
       var t5 = setTimeout(function(){
         $("#computerschoice").delay(300).show().fadeOut(1000);
       }, 500);
-		}
+    }
 
-		results = pointGranted(usersChoice, enemyChoice);
+    results = pointGranted(usersChoice, enemyChoice);
 
-		switch(results){
-			case 0:
-				usersScore += 1;
-				break;
-			case 1:
-				enemyScore += 1;
-				break;
-		}
+    switch(results){
+      case 0:
+        usersScore += 1;
+        break;
+      case 1:
+        enemyScore += 1;
+        break;
+    }
 
     $("#computerschoice").hide();
     $("#userscore").html(username + ": "+usersScore);
@@ -123,16 +123,16 @@ function initializer(){
       var t7 = setTimeout(function(){
         $("#notifyUsr").delay(500).show('slow').fadeOut(3000);
         document.getElementById("startbtn").disabled = false;
+
         if(currentRound === 5){
           displayResult();
         }
       }, 3000);
     }, 2000);
 
-
-		$("#giveup").on("click", startAgain);
-		$("#seekrev").on("click", resetFunc)
-	}
+    $("#giveup").on("click", startAgain);
+    $("#seekrev").on("click", resetFunc)
+  }
 
 
   // Opens modal when 5 rounds are done and displays result to user
@@ -155,55 +155,56 @@ function initializer(){
 	}
 
   // Resets variables when user decides to seet revenge
-	function resetFunc(){
-		usersScore = 0;
-		enemyScore = 0;
-		currentRound = 0;
-		$("h3").html(currentRound);
-		$("#userscore").html(usersScore);
-		$("#computerscore").html(enemyScore);
-		$("#computerschoice").html("");
-	}
+  function resetFunc(){
+    usersScore = 0;
+    enemyScore = 0;
+    currentRound = 0;
+    $("h3").html(currentRound);
+    $("#userscore").html(usersScore);
+    $("#computerscore").html(enemyScore);
+    $("#computerschoice").html("");
+  }
 
 
-	function startAgain(){
-		usersScore = 0;
-		enemyScore = 0;
-		currentRound = 0;
-		$("h3").html(currentRound);
-		$("#userscore").html(usersScore);
-		$("#computerscore").html(enemyScore);
-		$("form").hide();
-		$(".jumbotron").show();
-		$("mypullDown").addClass("pullDown");
-		$(".myfadeIn").hide();
-		$("#startbtn").show();
-		$("#computerschoice").html("");
+  function startAgain(){
+    usersScore = 0;
+    enemyScore = 0;
+    currentRound = 0;
+    $("h3").html(currentRound);
+    $("#userscore").html(usersScore);
+    $("#computerscore").html(enemyScore);
+    $("form").hide();
+    $(".jumbotron").show();
+    $("mypullDown").addClass("pullDown");
+    $(".myfadeIn").hide();
+    $("#startbtn").show();
+    $("#computerschoice").html("");
 
-	}
+  }
 
 
-	function pointGranted(usersChoice, enemyChoice){
-		//enemy point = 1
-		//users point = 0
-		//tie = 2
-		var grantedTo;
+  function pointGranted(usersChoice, enemyChoice){
+    //enemy point = 1
+    //users point = 0
+    //tie = 2
+    var grantedTo;
 
-		if(usersChoice === enemyChoice)
-			grantedTo = 2;
-		else if(usersChoice === "rock" && enemyChoice === "paper")
-			grantedTo = 1;
-		else if(usersChoice === "rock" && enemyChoice === "scissor")
-			grantedTo = 0;
-		else if(usersChoice === "paper" && enemyChoice === "rock")
-			grantedTo = 0;
-		else if(usersChoice === "paper" && enemyChoice === "scissor")
-			grantedTo = 1;
-		else if(usersChoice === "scissor" && enemyChoice === "rock")
-			grantedTo = 1;
-		else if(usersChoice === "scissor" && enemyChoice === "paper")
-			grantedTo = 0;
+    if(usersChoice === enemyChoice)
+      grantedTo = 2;
+    else if(usersChoice === "rock" && enemyChoice === "paper")
+      grantedTo = 1;
+    else if(usersChoice === "rock" && enemyChoice === "scissor")
+      grantedTo = 0;
+    else if(usersChoice === "paper" && enemyChoice === "rock")
+      grantedTo = 0;
+    else if(usersChoice === "paper" && enemyChoice === "scissor")
+      grantedTo = 1;
+    else if(usersChoice === "scissor" && enemyChoice === "rock")
+      grantedTo = 1;
+    else if(usersChoice === "scissor" && enemyChoice === "paper")
+      grantedTo = 0;
 
-		return grantedTo;
-	}
+    return grantedTo;
+  }
+
 }
