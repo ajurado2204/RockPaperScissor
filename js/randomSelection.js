@@ -1,14 +1,17 @@
 $(document).ready(initializer);
 
 function initializer(){
+
+  // Initialized variables
 	var username;
 	var usersScore = 0;
 	var enemyScore = 0;
 	var currentRound = 0;
 	var buttonsSet = false;
+  var choice = ["rock", "paper", "scissor"];
 	var results;
 
-
+  // Hides all elements before game begins //
 	$("form").hide();
 	$("mypullDown").addClass("pullDown");
 	$(".myfadeIn").hide();
@@ -22,10 +25,10 @@ function initializer(){
   $("#computerschoice").hide();
   $("#notifyUsr").hide();
 
-  var choice = ["rock", "paper", "scissor"];
-
+  // Event listener when user inputs name and first starts game
 	$("#startbtn").on('click', bindHandler);
 
+  // Event listener when user wants to begin the game
 	$("#beginbtn").on("click", function(e){
 		e.preventDefault();
 
@@ -78,6 +81,7 @@ function initializer(){
 
 	function computersChoice(){
 
+    // Generated computers choice and compares the result of the users choice.
 		var selectedChoice = Math.floor(Math.random() * choice.length);
 		var usersChoice = ($(this).attr('id')).slice(3);
 		var enemyChoice = choice[selectedChoice];
@@ -134,7 +138,7 @@ function initializer(){
 	}
 
 
-
+  // Opens modal when 5 rounds are done and displays result to user
 	function displayResult(){
 		if(usersScore > enemyScore){
 			$("#myModalLabel").html("Round 5 complete");
@@ -153,7 +157,7 @@ function initializer(){
 		});
 	}
 
-
+  // Resets variables when user decides to seet revenge
 	function resetFunc(){
 		usersScore = 0;
 		enemyScore = 0;
