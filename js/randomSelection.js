@@ -3,18 +3,18 @@ $(document).ready(initializer);
 function initializer(){
 
   // Initialized variables
-	var username;
-	var usersScore = 0;
-	var enemyScore = 0;
-	var currentRound = 0;
-	var buttonsSet = false;
+  var username;
+  var usersScore = 0;
+  var enemyScore = 0;
+  var currentRound = 0;
+  var buttonsSet = false;
   var choice = ["rock", "paper", "scissor"];
-	var results;
+  var results;
 
   // Hides all elements before game begins //
-	$("form").hide();
-	$("mypullDown").addClass("pullDown");
-	$(".myfadeIn").hide();
+  $("form").hide();
+  $("mypullDown").addClass("pullDown");
+  $(".myfadeIn").hide();
   $(".displaytext").hide();
   $('#score').hide();
   $('#rock').hide();
@@ -26,19 +26,18 @@ function initializer(){
   $("#notifyUsr").hide();
 
   // Event listener when user inputs name and first starts game
-	$("#startbtn").on('click', bindHandler);
+  $("#startbtn").on('click', bindHandler);
 
   // Event listener when user wants to begin the game
 	$("#beginbtn").on("click", function(e){
-		e.preventDefault();
+    e.preventDefault();
 
-		$(".jumbotron").hide();
-		$(".myfadeIn").show();
-		$(".myfadeIn").addClass("fadeIn");
+    $(".jumbotron").hide();
+    $(".myfadeIn").show();
+    $(".myfadeIn").addClass("fadeIn");
 
-		username = $("#name").val();
-		$("#personsname").html(username);
-
+    username = $("#name").val();
+    $("#personsname").html(username);
 
     $('#rectangle4').on('click', function(){
       currentRound += 1;
@@ -72,19 +71,17 @@ function initializer(){
       }
     });
 	});
-	
 
-	function bindHandler(){
-		$("form").show();
-		$("#startbtn").hide();
+  function bindHandler(){
+    $("form").show();
+    $("#startbtn").hide();
   }
 
-	function computersChoice(){
-
+  function computersChoice(){
     // Generated computers choice and compares the result of the users choice.
-		var selectedChoice = Math.floor(Math.random() * choice.length);
-		var usersChoice = ($(this).attr('id')).slice(3);
-		var enemyChoice = choice[selectedChoice];
+    var selectedChoice = Math.floor(Math.random() * choice.length);
+    var usersChoice = ($(this).attr('id')).slice(3);
+    var enemyChoice = choice[selectedChoice];
     $('#usrchoice').hide();
 
 		if(enemyChoice === "rock"){
