@@ -136,29 +136,31 @@ function initializer(){
 
 
   // Opens modal when 5 rounds are done and displays result to user
-	function displayResult(){
-		if(usersScore > enemyScore){
-			$("#myModalLabel").html("Round 5 complete");
-			$(".modal-body").html("Awsome! You won");
-		}else if(usersScore < enemyScore){
-			$("#myModalLabel").html("Round 5 complete");
-			$(".modal-body").html("You Lost!");
-		}else{
-			$("#myModalLabel").html("Round 5 complete");
-			$(".modal-body").html("It was a tie!");
-		}
-			
-		$("#myModal").modal({
-			backdrop: 'static', 
-			keyboard: false
-		});
-	}
+  function displayResult(){
+    if(usersScore > enemyScore){
+      $("#myModalLabel").html("Round 5 complete");
+      $(".modal-body").html("Awsome! You won");
+    }else if(usersScore < enemyScore){
+      $("#myModalLabel").html("Round 5 complete");
+      $(".modal-body").html("You Lost!");
+    }else{
+      $("#myModalLabel").html("Round 5 complete");
+      $(".modal-body").html("It was a tie!");
+    }
+
+    $("#myModal").modal({
+      backdrop: 'static',
+      keyboard: false
+    });
+  }
+
 
   // Resets variables when user decides to seet revenge
   function resetFunc(){
     usersScore = 0;
     enemyScore = 0;
     currentRound = 0;
+
     $("h3").html(currentRound);
     $("#userscore").html(usersScore);
     $("#computerscore").html(enemyScore);
@@ -170,6 +172,7 @@ function initializer(){
     usersScore = 0;
     enemyScore = 0;
     currentRound = 0;
+
     $("h3").html(currentRound);
     $("#userscore").html(usersScore);
     $("#computerscore").html(enemyScore);
